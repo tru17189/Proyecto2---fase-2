@@ -1,6 +1,6 @@
 from neo4jrestclient.client import GraphDatabase
  
-db = GraphDatabase("http://localhost:7474", username="neo4j", password="mypassword")
+db = GraphDatabase("http://localhost:7474", username="neo4j", password="Wasd")
  
 # Create some nodes with labels 
 
@@ -14,20 +14,20 @@ parqueo.add(p0, p1)
 
 saludable = db.labels.create('Saludable')
 # no saludable
-s0 = db.node.creat(name='0')
+s0 = db.node.create(name='0')
 # con opciones saludable
-s1 = db.node.creat(name='1')
+s1 = db.node.create(name='1')
 # Saludable
-s2 = db.node.creat(name='2')
+s2 = db.node.create(name='2')
 saludable.add(s0,s1,s2)
 
 
 tiempo = db.labels.create('Tiempo')
 # comida rapida
-t1 = db.node.create(name='0')
+t0 = db.node.create(name='0')
 # comida de tenedonr
 t1 = db.node.create(name='1')
-tiempo.add(t1,t2)
+tiempo.add(t0,t1)
 
 
 precio = db.labels.create('Precio')
@@ -37,7 +37,7 @@ p2 = db.node.create(name='2')
 p3 = db.node.create(name='3')
 p4 = db.node.create(name='4')
 # 5 mas caro
-p5 = db.labels.create(name='5')
+p5 = db.node.create(name='5')
 precio.add(p1,p2,p3,p4,p5)
 
 
@@ -57,8 +57,9 @@ z12 = db.node.create(name='12')
 z13 = db.node.create(name='13')
 z14 = db.node.create(name='14')
 z15 = db.node.create(name='15')
-Z16 = db.node.create(name='16')
-zona.add(z1,z2,z3,z4,z5,z6,z7,z8,z9,z10,z11,z12,z13,z14,z15,z16)
+z16 = db.node.create(name='16')
+z17 = db.node.create(name='17')
+zona.add(z1,z2,z3,z4,z5,z6,z7,z8,z9,z10,z11,z12,z13,z14,z15,z16,z17)
 
 
 tipo = db.labels.create('Tipo')
@@ -321,6 +322,7 @@ u7 = db.nodes.create(name = "Luis")
 u8 = db.nodes.create(name = "Pedro")
 u9 = db.nodes.create(name = "David")
 u10 = db.nodes.create(name = "Lucia")
+user.add(u1, u2, u3, u4, u5, u6, u7, u8, u9, u10)
 
 #Relaciones de usuarios
 ##Usuario 1
