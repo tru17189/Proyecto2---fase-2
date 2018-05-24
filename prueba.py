@@ -315,6 +315,8 @@ u1 = db.nodes.create(name = "Juan")
 u2 = db.nodes.create(name = "Carlos")
 u3 = db.nodes.create(name = "Julia")
 u4 = db.nodes.create(name = "Afedo")
+u5 = db.nodes.create(name = "Nicolle")
+u6 = db.nodes.create(name = "Ana")
 
 #Relaciones de usuarios
 ##Usuario 1
@@ -348,3 +350,51 @@ u4.relationships.create("Tiempo", t0)
 u4.relationships.create("Precio", p1)
 u4.relationships.create("Zona", z1)
 u4.relationships.create("Tipo", t2)
+
+##Usuario 5
+u5.relationships.create("Parqueo", p0)
+u5.relationships.create("Saludable", s2)
+u5.relationships.create("Tiempo", t0)
+u5.relationships.create("Precio", p3)
+u5.relationships.create("Zona", z14)
+u5.relationships.create("Tipo", t11)
+
+##Usuario 6
+u1.relationships.create("Parqueo", p1)
+u1.relationships.create("Saludable", s1)
+u1.relationships.create("Tiempo", t1)
+u1.relationships.create("Precio", p4)
+u1.relationships.create("Zona", z3)
+u1.relationships.create("Tipo", t8)
+
+##Usuario 7
+u1.relationships.create("Parqueo", p1)
+u1.relationships.create("Saludable", s1)
+u1.relationships.create("Tiempo", t0)
+u1.relationships.create("Precio", p2)
+u1.relationships.create("Zona", z7)
+u1.relationships.create("Tipo", t2)
+
+##Usuario 8
+u1.relationships.create("Parqueo", p1)
+u1.relationships.create("Saludable", s1)
+u1.relationships.create("Tiempo", t0)
+u1.relationships.create("Precio", p2)
+u1.relationships.create("Zona", z7)
+u1.relationships.create("Tipo", t2)
+
+##Usuario 9
+u1.relationships.create("Parqueo", p1)
+u1.relationships.create("Saludable", s1)
+u1.relationships.create("Tiempo", t0)
+u1.relationships.create("Precio", p2)
+u1.relationships.create("Zona", z7)
+u1.relationships.create("Tipo", t2)
+
+##Usuario 10
+u1.relationships.create("Parqueo", p1)
+u1.relationships.create("Saludable", s1)
+u1.relationships.create("Tiempo", t0)
+u1.relationships.create("Precio", p2)
+u1.relationships.create("Zona", z7)
+u1.relationships.create("Tipo", t2)
