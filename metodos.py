@@ -13,12 +13,18 @@ def agregarRestaurante (nombre, price, type1, number, db):
     print ("\nSe ha ingresado un restaurente correctamente\n")
     
 def consultaPrecio (price, client, db):
-    q = 'MATCH (u: Restaurantes) WHERE u.precio="'+price+'" RETURN u'
+    q = 'MATCH (n: Restaurantes) WHERE n.precio="'+price+'" RETURN n'
     resultsD = db.query(q, returns=(client.Node, str, client.Node))
+    x = 1
+    for r in resultsD:
+    	print(r[0]["name"])
+    	
 
 def consultaTipo (type1, client, db):
-    q = 'MATCH (u: Restaurantes) WHERE u.tipo="'+type1+'" RETURN u'
+    q = 'MATCH (n: Restaurantes) WHERE n.tipo="'+type1+'" RETURN n'
     resultsD = db.query(q, returns=(client.Node, str, client.Node))
+    for r in resultsD:
+    	print(r[0]['name'])
 
 #def recomedacionPrecio(restaurante, price):
  #   q = 'MATCH (u:Restaurante)-[r:PRECIO]->(m:Restaurente) WHERE u.name="'+restaurante+'" RETURN u, type(r),m'
