@@ -1,7 +1,8 @@
 from neo4jrestclient.client import GraphDatabase
+from neo4jrestclient import client
+from Metodos import *
  
 db = GraphDatabase("http://localhost:7474", username="neo4j", password="Wasd")
- 
 # se crea los usuarios
 user = db.labels.create("User")
 u1 = db.nodes.create(name="Marco", tel="21341123")
@@ -50,4 +51,8 @@ u2.relationships.create("le gsuta", r4)
 u3.relationships.create("le gusta", r2)
 u3.relationships.create("le gsuta", r3)
 
+#Menú
+menu = True
+while menu:
+     
 
