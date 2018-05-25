@@ -11,3 +11,7 @@ def agregarRestaurante (nombre, price, type1, number, db):
 def consultaPrecio (price,db):
     q = 'MATCH (u: Restaurantes) WHERE u.precio="'+price+'" RETURN u'
     resultsD = db.query(q, returns=(client.Node, str, client.Node))
+
+def consultaTipo (type1,db):
+    q = 'MATCH (u: Restaurantes) WHERE u.tipo="'+t+'" RETURN u'
+    resultsD = db.query(q, returns=(client.Node, str, client.Node))

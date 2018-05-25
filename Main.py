@@ -1,6 +1,6 @@
 from neo4jrestclient.client import GraphDatabase
 from neo4jrestclient import client
-from Metodos import *
+from metodos import *
  
 db = GraphDatabase("http://localhost:7474", username="neo4j", password="Wasd")
 # se crea los usuarios
@@ -54,5 +54,32 @@ u3.relationships.create("le gsuta", r3)
 #Menú
 menu = True
 while menu:
-     
+        print ("\tLa base de este proyecto muestra relaciones de los usuarios con los restauramtes que le gustan")
+        print ("Desde aquí puedes seleccionar lo que desea hacer con el sistema de recoendaciones\n")                         
+        print ("1.)Agregar nuevo usuario: ")                         
+        print ("2.)Agregar nuevo Restaurante: ")                         
+        print ("3.)Consultar restaurante por precio: ")                         
+        print ("4.)Consultar restaurante por tipo: ")                         
+        numero = input("Ingrese una opcion: ")
+        if numero == "1":
+            nombre = input("Ingresar nombre del usuario: ")
+            number= input("Ingresar el numero del usuario: ")
+            agregarUsuario(nombre, number, db)
+        elif numero == "2":
+            nombre = input("Ingresar nombre del restaurante: ")
+            price= input("Ingresar el precio que maneja el restaurante: ")
+            type1= input("Ingresar el tipo de que es restaurante: ")
+            number= input("Ingresar el numero del restaurante: ")
+            agregarRestaurante(nombre,price,type1, number, db)
+        elif numero == "3":
+             price = input("Ingresar el precio que busca: \nbusque Bajo, Medio o Alto")
+             consultaPrecio(price,db)
+        elif numero == "4":
+             type1 = input("Ingresar el tipo de restaurante que busca: \nbEjemplo Comida Rapida, Comida mexicana")
+             consultaTipo(type1,db)
+        else:
+            menu = False
+        
+
+
 
