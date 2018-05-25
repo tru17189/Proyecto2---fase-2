@@ -32,3 +32,22 @@ r2.relationships.create("Precios medios", r6)
 r2.relationships.create("Precios medios", r9)
 r9.relationships.create("Precios medios", r6)
 
+r1.relationships.create("Precios altos", r4)
+r1.relationships.create("Precios medios", r7)
+r1.relationships.create("Precios medios", r8)
+r4.relationships.create("Precios medios", r7)
+r4.relationships.create("Precios medios", r8)
+r7.relationships.create("Precios medios", r8)
+
+r2.relationships.create("Comida Rapida", r3)
+r5.relationships.create("Comida mexicana", r7)
+
+#Creamos relaciones entre los usuarios y los restauramtes
+u1.relationships.create("le gusta", r4)
+u1.relationships.create("le gusta", r9)
+u2.relationships.create("le gusta", r8)
+u2.relationships.create("le gsuta", r4)
+u3.relationships.create("le gusta", r2)
+u3.relationships.create("le gsuta", r3)
+
+
