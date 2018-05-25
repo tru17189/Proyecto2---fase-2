@@ -34,11 +34,11 @@ r2.relationships.create("Precios medios", r9)
 r9.relationships.create("Precios medios", r6)
 
 r1.relationships.create("Precios altos", r4)
-r1.relationships.create("Precios medios", r7)
-r1.relationships.create("Precios medios", r8)
-r4.relationships.create("Precios medios", r7)
-r4.relationships.create("Precios medios", r8)
-r7.relationships.create("Precios medios", r8)
+r1.relationships.create("Precios altos", r7)
+r1.relationships.create("Precios altos", r8)
+r4.relationships.create("Precios altos", r7)
+r4.relationships.create("Precios altos", r8)
+r7.relationships.create("Precios altos", r8)
 
 r2.relationships.create("Comida Rapida", r3)
 r5.relationships.create("Comida mexicana", r7)
@@ -73,7 +73,7 @@ while menu:
             agregarRestaurante(nombre,price,type1, number, db)
         elif numero == "3":
              price = input("Ingresar el precio que busca: \nbusque Bajo, Medio o Alto: ")
-             consultaPrecio(price,db)
+             consultaPrecio(price, client, db)
         elif numero == "4":
              type1 = input("Ingresar el tipo de restaurante que busca: \nbEjemplo Comida Rapida, Comida mexicana")
              consultaTipo(type1,db)
