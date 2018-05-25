@@ -72,7 +72,7 @@ while menu:
             number= input("Ingresar el numero del restaurante: ")
             agregarRestaurante(nombre,price,type1, number, db)
         elif numero == "3":
-             price = input("Ingresar el precio que busca: \nbusque Bajo, Medio o Alto")
+             price = input("Ingresar el precio que busca: \nbusque Bajo, Medio o Alto: ")
              consultaPrecio(price,db)
         elif numero == "4":
              type1 = input("Ingresar el tipo de restaurante que busca: \nbEjemplo Comida Rapida, Comida mexicana")
