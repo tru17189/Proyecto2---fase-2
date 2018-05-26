@@ -119,7 +119,8 @@ while menu:
         elif numero == "3":
              price = input("Ingresar el precio que busca: \n busque Bajo, Medio o Alto: ")
              price = price.capitalize()
-             consultaPrecio(price, client, db)
+             cuales = consultaPrecio(price, client, db)
+             print(cuales)
         elif numero == "4":
              type1 = input("Ingresar el tipo de restaurante que busca: \nbEjemplo Comida Rapida, Comida mexicana")
              type1 = type1.capitalize()
@@ -137,7 +138,7 @@ while menu:
         	timing = timing.capitalize()
         	saludable = input("Ingresar que tipo de comida desea: saludable (S) o no saludable (NS)")
         	saludable = saludable.capitalize()
-        	recomendar(type1,price,client,zone,parking,timing,saludable,db)
+        	recomendar(price,type1,zone,parking,saludable, timing, client,db)
         else:
             menu = False
         

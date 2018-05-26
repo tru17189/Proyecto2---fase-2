@@ -13,86 +13,148 @@ def agregarRestaurante (nombre, price, type1, number, db):
     print ("\nSe ha ingresado un restaurente correctamente\n")
     
 def consultaPrecio (price, client, db):
-    q = 'MATCH (n: Restaurantes) WHERE n.precio="'+price+'" RETURN n'
+    q = 'MATCH (n: Restaurantes) WHERE n.price="'+price+'" RETURN n'
     resultsD = db.query(q, returns=(client.Node, str, client.Node))
-    x = 1
     for r in resultsD:
     	print(r[0]["name"])
+    return r
     	
 
 def consultaTipo (type1, client, db):
-    q = 'MATCH (n: Restaurantes) WHERE n.tipo="'+type1+'" RETURN n'
+    q = 'MATCH (n: Restaurantes) WHERE n.type="'+type1+'" RETURN n'
     resultsD = db.query(q, returns=(client.Node, str, client.Node))
     for r in resultsD:
     	print(r[0]['name'])
 
-def recomendar(type1,price,zone,parking,timing,saludable, client,db):
+def recomendar (price, type1, zone, parking, saludable, timing, client, db):
+    q = 'MATCH (n: Restaurantes) WHERE n.price="'+price+'" RETURN n'
+    resultsP = db.query(q, returns=(client.Node, str, client.Node))
+    restaurantes = []
+    for r in resultsP:
+    	if restaurantes.count(r)<1:
+    		restaurantes.append(r)
+
+    q = 'MATCH (n: Restaurantes) WHERE n.type1="'+type1+'" RETURN n'
+    resultsT = db.query(q, returns=(client.Node, str, client.Node))
+    for r in resultsT:
+    	if restaurantes.count(r)<1:
+    		restaurantes.append(r)
+    q = 'MATCH (n: Restaurantes) WHERE n.zone="'+zone+'" RETURN n'
+    resultsZ = db.query(q, returns=(client.Node, str, client.Node))
+    for r in resultsZ:
+    	if restaurantes.count(r)<1:
+    		restaurantes.append(r)
+    q = 'MATCH (n: Restaurantes) WHERE n.parking="'+parking+'" RETURN n'
+    resultsPa = db.query(q, returns=(client.Node, str, client.Node))
+    for r in resultsPa:
+    	if restaurantes.count(r)<1:
+    		restaurantes.append(r)
+    q = 'MATCH (n: Restaurantes) WHERE n.saludable="'+saludable+'" RETURN n'
+    resultsS = db.query(q, returns=(client.Node, str, client.Node))
+    for r in resultsS:
+    	if restaurantes.count(r)<1:
+    		restaurantes.append(r)
+    q = 'MATCH (n: Restaurantes) WHERE n.timing="'+timing+'" RETURN n'
+    resultsTi = db.query(q, returns=(client.Node, str, client.Node))
+    for r in resultsTi:
+    	if restaurantes.count(r)<1:
+    		restaurantes.append(r)
+    ## Punteo
+    for r in restaurantes:
+    	if r[0]['price'] == price:
+    		numero = int(r[0]['score'])
+    		numero = numero + 10
+    		r[0]['score'] = str(numero)
+    for r in restaurantes:
+    	if r[0]['type1'] == type1:
+    		numero = int(r[0]['score'])
+    		numero = numero + 30
+    		r[0]['score'] = str(numero)
+    for r in restaurantes:
+    	if r[0]['zone'] == zone:
+    		numero = int(r[0]['score'])
+    		numero = numero + 30
+    		r[0]['score'] = str(numero)
+    for r in restaurantes:
+    	if r[0]['parking'] == parking:
+    		numero = int(r[0]['score'])
+    		numero = numero + 10
+    		r[0]['score'] = str(numero)
+    for r in restaurantes:
+    	if r[0]['timing'] == timing:
+    		numero = int(r[0]['score'])
+    		numero = numero + 30
+    		r[0]['score'] = str(numero)
+    ordenados = sorted(restaurantes, key=lambda restaurant:restaunrant[0]['score'])
+    print(ordenados)
+
+def recomendar1(type1,price,zone,parking,timing,saludable, client,db):
 	q = 'MATCH (n: Restaurantes) WHERE n.price="'+price+'" RETURN n'
-	resultsP = db.query(q, returns=(client.Node, str, client.Node))
+	resultsP1 = db.query(q, returns=client.Node)
 	q = 'MATCH (n: Restaurantes) WHERE n.type="'+type1+'" RETURN n'
-	resultsT = db.query(q, returns=(client.Node, str, client.Node))
+	resultsT1 = db.query(q, returns=(client.Node, str, client.Node))
 	q = 'MATCH (n: Restaurantes) WHERE n.zone="'+zone+'" RETURN n'
-	resultsZ = db.query(q, returns=(client.Node, str, client.Node))
+	resultsZ1 = db.query(q, returns=(client.Node, str, client.Node))
 	q = 'MATCH (n: Restaurantes) WHERE n.parking="'+zone+'" RETURN n'
-	resultsP = db.query(q, returns=(client.Node, str, client.Node))
+	resultsPa1 = db.query(q, returns=(client.Node, str, client.Node))
 	q = 'MATCH (n: Restaurantes) WHERE n.timing="'+timing+'" RETURN n'
-	resultsTi = db.query(q, returns=(client.Node, str, client.Node))
+	resultsTi1 = db.query(q, returns=(client.Node, str, client.Node))
 	q = 'MATCH (n: Restaurantes) WHERE n.saludable="'+sdaludable +'" RETURN n'
-	resultsS = db.query(q, returns=(client.Node, str, client.Node))
+	resultsS1 = db.query(q, returns=(client.Node, str, client.Node))
 	restaurantes = []
 	## restauran unique
 	for r in resultsP:
 		if restaurantes.count(r[0]['name']) < 1:
 			restaurantes.append(r)
-	for r in resultsT:
+	for r in resultsT1:
 		if restaurantes.count(r[0]['name']) < 1:
 			restaurantes.append(r)
-	for r in resultsZ:
+	for r in resultsZ1:
 		if restaurantes.count(r[0]['name']) < 1:
 			restaurantes.append(r)
-	for r in resultsPa:
+	for r in resultsPa1:
 		if restaurantes.count(r[0]['name']) < 1:
 			restaurantes.append(r)
-	for r in resultsTi:
+	for r in resultsTi1:
 		if restaurantes.count(r[0]['name']) < 1:
 			restaurantes.append(r)
-	for r in resultsS:
+	for r in resultsS1:
 		if restaurantes.count(r[0]['name']) < 1:
 			restaurantes.append(r)
 	## Punteo
 	for r in restaurantes:
 		## verificar si esta
-		if restaurantes.count(r[0]['price']) == price:
+		if r[0]['price'] == price:
 			numero = int(r[0]['score'])
 			numero = numero + 10
 			r[0]['score'] = str(numero)
 	for r in restaurantes:
 		## verificar si esta
-		if restaurantes.count(r[0]['type1']) == type1:
+		if r[0]['type1'] == type1:
 			numero = int(r[0]['score'])
 			numero = numero + 30
 			r[0]['score'] = str(numero)
 	for r in restaurantes:
 		## verificar si esta
-		if restaurantes.count(r[0]['zone']) == zone:
+		if r[0]['zone'] == zone:
 			numero = int(r[0]['score'])
 			numero = numero + 30
 			r[0]['score'] = str(numero)
 	for r in restaurantes:
 		## verificar si esta
-		if restaurantes.count(r[0]['parking']) == parking:
+		if r[0]['parking'] == parking:
 			numero = int(r[0]['score'])
 			numero = numero + 10
 			r[0]['score'] = str(numero)
 	for r in restaurantes:
 		## verificar si esta
-		if restaurantes.count(r[0]['timing']) == timing:
+		if r[0]['timing'] == timing:
 			numero = int(r[0]['score'])
 			numero = numero + 30
 			r[0]['score'] = str(numero)
 	ordenados = sorted(restaurantes, key=lambda restaurant:restaunrant[0]['score'])
+	print(ordenados)
 	
-
 
 
 
