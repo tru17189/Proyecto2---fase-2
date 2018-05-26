@@ -85,8 +85,9 @@ def recomendar (price, type1, zone, parking, saludable, timing, client, db):
     		numero = int(r[0]['score'])
     		numero = numero + 30
     		r[0]['score'] = str(numero)
-    ordenados = sorted(restaurantes, key=lambda restaurant:restaunrant[0]['score'])
-    print(ordenados)
+    restaurantes.sort(key=lambda r:r[0]['score'])
+    for r in restaurantes:
+    	print("Restaurante: "+r[0]['name']+" 	Score: "+r[0]['score'])
 
 def recomendar1(type1,price,zone,parking,timing,saludable, client,db):
 	q = 'MATCH (n: Restaurantes) WHERE n.price="'+price+'" RETURN n'
@@ -104,22 +105,22 @@ def recomendar1(type1,price,zone,parking,timing,saludable, client,db):
 	restaurantes = []
 	## restauran unique
 	for r in resultsP:
-		if restaurantes.count(r[0]['name']) < 1:
+		if restaurantes.count(r) < 1:
 			restaurantes.append(r)
 	for r in resultsT1:
-		if restaurantes.count(r[0]['name']) < 1:
+		if restaurantes.count(r) < 1:
 			restaurantes.append(r)
 	for r in resultsZ1:
-		if restaurantes.count(r[0]['name']) < 1:
+		if restaurantes.count(r) < 1:
 			restaurantes.append(r)
 	for r in resultsPa1:
-		if restaurantes.count(r[0]['name']) < 1:
+		if restaurantes.count(r) < 1:
 			restaurantes.append(r)
 	for r in resultsTi1:
-		if restaurantes.count(r[0]['name']) < 1:
+		if restaurantes.count(r) < 1:
 			restaurantes.append(r)
 	for r in resultsS1:
-		if restaurantes.count(r[0]['name']) < 1:
+		if restaurantes.count(r) < 1:
 			restaurantes.append(r)
 	## Punteo
 	for r in restaurantes:
@@ -152,8 +153,9 @@ def recomendar1(type1,price,zone,parking,timing,saludable, client,db):
 			numero = int(r[0]['score'])
 			numero = numero + 30
 			r[0]['score'] = str(numero)
-	ordenados = sorted(restaurantes, key=lambda restaurant:restaunrant[0]['score'])
-	print(ordenados)
+	ordenados = sorted(restaurantes, key=lambda restaurant:restaunrant[0]['score'], reverse=False)
+	for o in ordenados:
+		print("Restaurante: "+o[0]['name']+" 	Score: "+ o[0]['score'])
 	
 
 
