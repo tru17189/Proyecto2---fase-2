@@ -62,7 +62,7 @@ r2.relationships.create("11", r6)
 r6.relationships.create("11", r7)
 r4.relationships.create("10", r8)
 r2.relationships.create("9", r4)
-r1.relationships.create("16", r16)
+r1.relationships.create("16", r6)
 
 r4.relationships.create("Pagado", r7)
 r4.relationships.create("Pagado", r9)
@@ -82,18 +82,6 @@ r3.relationships.create("Gratis", r5)
 r3.relationships.create("Gratis", r6)
 r3.relationships.create("Gratis", r8)
 r6.relationships.create("Gratis", r8)
-
-
-
-
-
-
-
-
-
-
-
-
 
 r2.relationships.create("Comida Rapida", r3)
 r5.relationships.create("Comida mexicana", r7)
