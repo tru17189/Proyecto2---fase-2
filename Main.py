@@ -132,7 +132,7 @@ while menu:
         	zone = input("Ingrese la zona de restaurante que necesita (de 1 a 16)")
         	zone = price.capitalize()
         	parking = input("Ingresar un tipo de parqueo: Gratis o Pagado")
-        	parking = paring.capitalizae()
+        	parking = parking.capitalizae()
         	timing = input("Ingresar que tipo de comida: Rapida o Tenedor")
         	timing = timing.capitalize()
         	saludable = input("Ingresar que tipo de comida desea: saludable (S) o no saludable (NS)")
