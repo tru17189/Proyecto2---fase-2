@@ -109,7 +109,7 @@ u3.relationships.create("le gsuta", r3)
 #Menú
 menu = True
 while menu:
-        print ("\tLa base de este proyecto muestra relaciones de los usuarios con los restauramtes que le gustan")
+        print ("\tLa base de este proye cto muestra relaciones de los usuarios con los restauramtes que le gustan")
         print ("Desde aquí puedes seleccionar lo que desea hacer con el sistema de recoendaciones\n")                         
         print ("1.)Agregar nuevo usuario: ")                         
         print ("2.)Agregar nuevo Restaurante: ")                         
