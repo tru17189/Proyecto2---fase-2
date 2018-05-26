@@ -26,6 +26,21 @@ def consultaTipo (type1, client, db):
     for r in resultsD:
     	print(r[0]['name'])
 
+def recomendar(type1,price,client,db):
+	q = 'MATCH (n: Restaurantes) WHERE n.precio="'+price+'" RETURN n'
+	resultsP = db.query(q, returns=(client.Node, str, client.Node))
+	q = 'MATCH (n: Restaurantes) WHERE n.tipo="'+type1+'" RETURN n'
+	resultsT = db.query(q, returns=(client.Node, str, client.Node))
+	delPrecio = []
+	for r in resultsP:
+		delPrecio.append(r[0]['name'])
+	for r in delPrecio:
+		print(delPrecio[r])
+
+
+
+
+
 #def recomedacionPrecio(restaurante, price):
  #   q = 'MATCH (u:Restaurante)-[r:PRECIO]->(m:Restaurente) WHERE u.name="'+restaurante+'" RETURN u, type(r),m'
   #  resultsP = db.query(q, returns=(client.Node, str, client.Node))
