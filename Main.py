@@ -40,6 +40,61 @@ r4.relationships.create("Precios altos", r7)
 r4.relationships.create("Precios altos", r8)
 r7.relationships.create("Precios altos", r8)
 
+r1.relationships.create("S", r3)
+r1.relationships.create("S", r6)
+r1.relationships.create("S", r7)
+r1.relationships.create("S", r8)
+r3.relationships.create("S", r6)
+r3.relationships.create("S", r7)
+r3.relationships.create("S", r8)
+r6.relationships.create("S", r7)
+r6.relationships.create("S", r8)
+
+r2.relationships.create("S", r4)
+r2.relationships.create("S", r5)
+r4.relationships.create("S", r5)
+
+r1.relationships.create("11", r2)
+r1.relationships.create("11", r7)
+r1.relationships.create("11", r6)
+r2.relationships.create("11", r7)
+r2.relationships.create("11", r6)
+r6.relationships.create("11", r7)
+r4.relationships.create("10", r8)
+r2.relationships.create("9", r4)
+r1.relationships.create("16", r16)
+
+r4.relationships.create("Pagado", r7)
+r4.relationships.create("Pagado", r9)
+r7.relationships.create("Pagado", r9)
+
+
+r1.relationships.create("Gratis", r2)
+r1.relationships.create("Gratis", r3)
+r1.relationships.create("Gratis", r5)
+r1.relationships.create("Gratis", r6)
+r1.relationships.create("Gratis", r8)
+r2.relationships.create("Gratis", r3)
+r2.relationships.create("Gratis", r5)
+r2.relationships.create("Gratis", r6)
+r2.relationships.create("Gratis", r8)
+r3.relationships.create("Gratis", r5)
+r3.relationships.create("Gratis", r6)
+r3.relationships.create("Gratis", r8)
+r6.relationships.create("Gratis", r8)
+
+
+
+
+
+
+
+
+
+
+
+
+
 r2.relationships.create("Comida Rapida", r3)
 r5.relationships.create("Comida mexicana", r7)
 
