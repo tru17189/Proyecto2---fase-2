@@ -102,7 +102,9 @@ while menu:
         print ("1.)Agregar nuevo usuario: ")                         
         print ("2.)Agregar nuevo Restaurante: ")                         
         print ("3.)Consultar restaurante por precio: ")                         
-        print ("4.)Consultar restaurante por tipo: ")                         
+        print ("4.)Consultar restaurante por tipo: ") 
+        print ("5.)Recomendar un restaurante: ")                         
+                        
         numero = input("Ingrese una opcion: ")
         if numero == "1":
             nombre = input("Ingresar nombre del usuario: ")
@@ -122,6 +124,12 @@ while menu:
              type1 = input("Ingresar el tipo de restaurante que busca: \nbEjemplo Comida Rapida, Comida mexicana")
              type1 = type1.capitalize()
              consultaTipo(type1,db)
+        elif numero == "5":
+        	type1 = input("Ingresar el tipo de restaurante que necesita: \nbEjemplo Comida Rapida, Comida mexicana")
+        	type1 = type1.capitalize()
+        	price = input("Ingresar el precio que necesita: \nbusque Bajo, Medio o Alto: ")
+        	price = price.capitalize()
+        	recomendar(type1,price,client,db)
         else:
             menu = False
         
