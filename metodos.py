@@ -90,6 +90,7 @@ def recomendar(type1,price,zone,parking,timing,saludable, client,db):
 			numero = int(r[0]['score'])
 			numero = numero + 30
 			r[0]['score'] = str(numero)
+	ordenados = sorted(restaurantes, key=lambda restaurant:restaunrant[0]['score'])
 	
 
 
